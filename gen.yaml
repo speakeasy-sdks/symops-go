@@ -1,9 +1,14 @@
 configVersion: 1.0.0
+management:
+  docChecksum: 8b523f9fb02a6ddcca1a09587c943be9
+  docVersion: 1.0.0
+  speakeasyVersion: 1.19.7
+  generationVersion: 2.17.9
 generation:
   telemetryEnabled: false
   sdkClassName: SDK
-  sdkFlattening: true
+  sdkFlattening: false
   singleTagPerOp: false
 go:
-  version: ""
+  version: 1.0.0
   packageName: symops
