@@ -1,4 +1,4 @@
-sdk.go
+symops.go
 go.mod
 go.sum
 pkg/types/date.go

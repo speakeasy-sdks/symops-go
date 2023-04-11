@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-    s := sdk.New()
+    s := symops.New()
 
     ctx := context.Background()    
     req := operations.GetEventRequest{
