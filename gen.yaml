@@ -6,8 +6,8 @@ management:
   generationVersion: 2.17.9
 generation:
   telemetryEnabled: false
-  sdkClassName: SDK
-  sdkFlattening: false
+  sdkClassName: symops
+  sdkFlattening: true
   singleTagPerOp: false
 go:
   version: 1.0.0
