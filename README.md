@@ -22,7 +22,7 @@ import (
 )
 
 func main() {
-    s := sdk.New()
+    s := symops.New()
 
     ctx := context.Background()    
     req := operations.GetEventRequest{
@@ -44,7 +44,7 @@ func main() {
 <!-- Start SDK Available Operations -->
 ## Available Resources and Operations
 
-### SDK SDK
+### Symops SDK
 
 * `GetEvent` - Retrieve an event by event ID
 <!-- End SDK Available Operations -->
