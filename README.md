@@ -1,12 +1,23 @@
-# symops
+<div align="center">
+   <img src="https://user-images.githubusercontent.com/68016351/231297937-c9e20343-f037-4c65-96ac-06fb877fe121.png" width="200">
+   <h1>Symops Go SDK</h1>
+   <p>Secure your production infrastructure with code</p>
+   <a href="https://github.com/speakeasy-sdks/symops-go/actions"><img src="https://img.shields.io/github/actions/workflow/status/speakeasy-sdks/symops-go/speakeasy_sdk_generation.yml?style=for-the-badge" /></a>
+   <a href="https://docs.symops.com/reference"><img src="https://img.shields.io/static/v1?label=Docs&message=API Ref&color=000&style=for-the-badge" /></a>
+</div>
 
 <!-- Start SDK Installation -->
+
 ## SDK Installation
 
 ```bash
 go get github.com/speakeasy-sdks/symops-go
 ```
 <!-- End SDK Installation -->
+
+## Authentication
+
+To get access to the API and fetch an API key, please sign up for [access](https://docs.symops.com/docs). 
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
