@@ -1,4 +1,19 @@
-<!-- Start SDK Example Usage -->
+# Symops SDK
+
+## Overview
+
+This API allows you to retrieve events by event ID from Symops.
+
+### Available Operations
+
+* [GetEvent](#getevent) - Retrieve an event by event ID
+
+## GetEvent
+
+Retrieve an event by event ID
+
+### Example Usage
+
 ```go
 package main
 
@@ -14,10 +29,10 @@ func main() {
 
     ctx := context.Background()    
     req := operations.GetEventRequest{
-        EventID: "corrupti",
+        EventID: "provident",
     }
 
-    res, err := s.GetEvent(ctx, req)
+    res, err := s.Symops.GetEvent(ctx, req)
     if err != nil {
         log.Fatal(err)
     }
@@ -27,4 +42,3 @@ func main() {
     }
 }
 ```
-<!-- End SDK Example Usage -->

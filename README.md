@@ -7,7 +7,6 @@
 </div>
 
 <!-- Start SDK Installation -->
-
 ## SDK Installation
 
 ```bash
@@ -24,12 +23,11 @@ To get access to the API and fetch an API key, please sign up for [access](https
 ```go
 package main
 
-import (
-    "context"
-    "log"
-    "symops"
-    "symops/pkg/models/shared"
-    "symops/pkg/models/operations"
+import(
+	"context"
+	"log"
+	"symops"
+	"symops/pkg/models/operations"
 )
 
 func main() {
@@ -55,9 +53,9 @@ func main() {
 <!-- Start SDK Available Operations -->
 ## Available Resources and Operations
 
-### Symops SDK
+### [Symops SDK](docs/symops/README.md)
 
-* `GetEvent` - Retrieve an event by event ID
+* [GetEvent](docs/symops/README.md#getevent) - Retrieve an event by event ID
 <!-- End SDK Available Operations -->
 
 ### Maturity

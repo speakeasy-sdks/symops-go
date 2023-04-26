@@ -25,6 +25,21 @@ type HTTPClient interface {
 // String provides a helper function to return a pointer to a string
 func String(s string) *string { return &s }
 
+// Bool provides a helper function to return a pointer to a bool
+func Bool(b bool) *bool { return &b }
+
+// Int provides a helper function to return a pointer to an int
+func Int(i int) *int { return &i }
+
+// Int64 provides a helper function to return a pointer to an int64
+func Int64(i int64) *int64 { return &i }
+
+// Float32 provides a helper function to return a pointer to a float32
+func Float32(f float32) *float32 { return &f }
+
+// Float64 provides a helper function to return a pointer to a float64
+func Float64(f float64) *float64 { return &f }
+
 // Symops - This API allows you to retrieve events by event ID from Symops.
 type Symops struct {
 
@@ -69,8 +84,8 @@ func WithClient(client HTTPClient) SDKOption {
 func New(opts ...SDKOption) *Symops {
 	sdk := &Symops{
 		_language:   "go",
-		_sdkVersion: "1.0.1",
-		_genVersion: "2.17.9",
+		_sdkVersion: "1.1.0",
+		_genVersion: "2.21.1",
 	}
 	for _, opt := range opts {
 		opt(sdk)
@@ -94,7 +109,10 @@ func New(opts ...SDKOption) *Symops {
 // GetEvent - Retrieve an event by event ID
 func (s *Symops) GetEvent(ctx context.Context, request operations.GetEventRequest) (*operations.GetEventResponse, error) {
 	baseURL := s._serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/api/v1/events/{event_id}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/api/v1/events/{event_id}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
