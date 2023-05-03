@@ -84,8 +84,8 @@ func WithClient(client HTTPClient) SDKOption {
 func New(opts ...SDKOption) *Symops {
 	sdk := &Symops{
 		_language:   "go",
-		_sdkVersion: "1.1.0",
-		_genVersion: "2.21.1",
+		_sdkVersion: "1.2.0",
+		_genVersion: "2.24.0",
 	}
 	for _, opt := range opts {
 		opt(sdk)
@@ -107,6 +107,7 @@ func New(opts ...SDKOption) *Symops {
 }
 
 // GetEvent - Retrieve an event by event ID
+
 func (s *Symops) GetEvent(ctx context.Context, request operations.GetEventRequest) (*operations.GetEventResponse, error) {
 	baseURL := s._serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/api/v1/events/{event_id}", request, nil)

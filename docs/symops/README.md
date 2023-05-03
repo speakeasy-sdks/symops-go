@@ -27,12 +27,10 @@ import(
 func main() {
     s := symops.New()
 
-    ctx := context.Background()    
-    req := operations.GetEventRequest{
+    ctx := context.Background()
+    res, err := s.Symops.GetEvent(ctx, operations.GetEventRequest{
         EventID: "provident",
-    }
-
-    res, err := s.Symops.GetEvent(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
