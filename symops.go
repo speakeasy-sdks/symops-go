@@ -3,8 +3,10 @@
 package symops
 
 import (
+	"bytes"
 	"context"
 	"fmt"
+	"io"
 	"net/http"
 	"symops/pkg/models/operations"
 	"symops/pkg/models/shared"
@@ -84,8 +86,8 @@ func WithClient(client HTTPClient) SDKOption {
 func New(opts ...SDKOption) *Symops {
 	sdk := &Symops{
 		_language:   "go",
-		_sdkVersion: "1.3.0",
-		_genVersion: "2.28.0",
+		_sdkVersion: "1.4.0",
+		_genVersion: "2.34.2",
 	}
 	for _, opt := range opts {
 		opt(sdk)
@@ -118,6 +120,8 @@ func (s *Symops) GetEvent(ctx context.Context, request operations.GetEventReques
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s", s._language, s._sdkVersion, s._genVersion))
 
 	client := s._defaultClient
 
@@ -128,7 +132,13 @@ func (s *Symops) GetEvent(ctx context.Context, request operations.GetEventReques
 	if httpRes == nil {
 		return nil, fmt.Errorf("error sending request: no response")
 	}
-	defer httpRes.Body.Close()
+
+	rawBody, err := io.ReadAll(httpRes.Body)
+	if err != nil {
+		return nil, fmt.Errorf("error reading response body: %w", err)
+	}
+	httpRes.Body.Close()
+	httpRes.Body = io.NopCloser(bytes.NewBuffer(rawBody))
 
 	contentType := httpRes.Header.Get("Content-Type")
 
@@ -142,7 +152,7 @@ func (s *Symops) GetEvent(ctx context.Context, request operations.GetEventReques
 		switch {
 		case utils.MatchContentType(contentType, `application/json`):
 			var out *shared.Event
-			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out); err != nil {
 				return nil, err
 			}
 
