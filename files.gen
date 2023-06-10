@@ -16,5 +16,9 @@ pkg/utils/security.go
 pkg/utils/utils.go
 pkg/models/operations/getevent.go
 pkg/models/shared/event.go
-docs/symops/README.md
+docs/sdks/symops/README.md
 USAGE.md
+docs/models/operations/geteventrequest.md
+docs/models/operations/geteventresponse.md
+docs/models/shared/eventlocation.md
+docs/models/shared/event.md

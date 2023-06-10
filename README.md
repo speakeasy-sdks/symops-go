@@ -51,9 +51,9 @@ func main() {
 <!-- Start SDK Available Operations -->
 ## Available Resources and Operations
 
-### [Symops SDK](docs/symops/README.md)
+### [Symops SDK](docs/sdks/symops/README.md)
 
-* [GetEvent](docs/symops/README.md#getevent) - Retrieve an event by event ID
+* [GetEvent](docs/sdks/symops/README.md#getevent) - Retrieve an event by event ID
 <!-- End SDK Available Operations -->
 
 ### Maturity
